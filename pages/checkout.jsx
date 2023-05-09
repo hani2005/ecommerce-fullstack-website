@@ -1,6 +1,9 @@
 import Layout from "../components/Layout"
 import { useContext, useEffect, useState } from "react"
 import { ProductsContext } from "../components/ProductsContext"
+import { HiArrowNarrowLeft } from "react-icons/hi"
+import Link from "next/link"
+import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai"
 
 export default function CheckoutPage() {
   const { selectedProducts, setSelectedProducts } = useContext(ProductsContext)
@@ -41,114 +44,129 @@ export default function CheckoutPage() {
 
   return (
     <Layout>
-      {!productsInfos.length && <div>no products in your shopping cart</div>}
-      {productsInfos.length &&
-        productsInfos.map((productInfo) => {
-          const amount = selectedProducts.filter(
-            (id) => id === productInfo._id
-          ).length
-          if (amount === 0) return
-          return (
-            <div className="flex mb-5 items-center" key={productInfo._id}>
+      <div className="flex flex-col items-center">
+        <Link href={"/"} className="flex items-center mb-5 gap-2">
+          <HiArrowNarrowLeft className="text-[1.5rem]" />
+          <span className="text-[1.2rem] font-semibold">Home</span>
+        </Link>
+        {!productsInfos.length && <div>no products in your shopping cart</div>}
+        {productsInfos.length &&
+          productsInfos.map((productInfo) => {
+            const amount = selectedProducts.filter(
+              (id) => id === productInfo._id
+            ).length
+            if (amount === 0) return
+            return (
               <div
-                className="bg-gray-100 p-3 rounded-xl shrink-0"
-                style={{ boxShadow: "inset 1px 0px 10px 10px rgba(0,0,0,0.1)" }}
+                className="flex mb-5 items-center w-[53rem]"
+                key={productInfo._id}
               >
-                <img className="w-24" src={productInfo.picture} alt="" />
-              </div>
-              <div className="pl-4 items-center">
-                <h3 className="font-bold text-lg">{productInfo.name}</h3>
-                <p className="text-sm leading-4 text-gray-500">
-                  {productInfo.description}
-                </p>
-                <div className="flex mt-1">
-                  <div className="grow font-bold">${productInfo.price}</div>
-                  <div>
-                    <button
-                      onClick={() => lessOfThisProduct(productInfo._id)}
-                      className="border border-blueColor px-2.5 rounded-lg text-blueColor"
-                    >
-                      -
-                    </button>
-                    <span className="px-2">
-                      {
-                        selectedProducts.filter((id) => id === productInfo._id)
-                          .length
-                      }
-                    </span>
-                    <button
-                      onClick={() => moreOfThisProduct(productInfo._id)}
-                      className="bg-blueColor px-2 rounded-lg text-white"
-                    >
-                      +
-                    </button>
+                <div className="shrink-0">
+                  <img
+                    className="w-28 rounded-lg"
+                    src={productInfo.picture}
+                    alt=""
+                  />
+                </div>
+                <div className="pl-4 items-center">
+                  <h3 className="font-bold text-lg">{productInfo.name}</h3>
+                  <p className="text-sm leading-4 text-gray-500">
+                    {productInfo.description}
+                  </p>
+                  <div className="flex mt-1">
+                    <div className="grow font-bold">${productInfo.price}</div>
+                    <div className="flex items-center">
+                      <button
+                        onClick={() => lessOfThisProduct(productInfo._id)}
+                        className=""
+                      >
+                        <AiOutlineMinusCircle className="text-[1.5rem]" />
+                      </button>
+                      <span className="px-2">
+                        {
+                          selectedProducts.filter(
+                            (id) => id === productInfo._id
+                          ).length
+                        }
+                      </span>
+                      <button
+                        onClick={() => moreOfThisProduct(productInfo._id)}
+                        className=""
+                      >
+                        <AiOutlinePlusCircle className="text-[1.5rem]" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )
-        })}
-      <form action="/api/checkout" method="POST">
-        <div className="mt-8">
-          <input
-            name="address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            className="bg-gray-100 w-full rounded-lg px-4 py-4 mb-2"
-            type="text"
-            placeholder="Street address, number"
-          />
-          <input
-            name="city"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            className="bg-gray-100 w-full rounded-lg px-4 py-4 mb-2"
-            type="text"
-            placeholder="City and postal code"
-          />
-          <input
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="bg-gray-100 w-full rounded-lg px-4 py-4 mb-2"
-            type="text"
-            placeholder="Your name"
-          />
-          <input
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="bg-gray-100 w-full rounded-lg px-4 py-4 mb-2"
-            type="email"
-            placeholder="Email address"
-          />
-        </div>
-        <div className="mt-8">
-          <div className="flex my-3">
-            <h3 className="grow font-bold text-gray-400">Subtotal:</h3>
-            <h3 className="font-bold">${subtotal}</h3>
-          </div>
-          <div className="flex my-3">
-            <h3 className="grow font-bold text-gray-400">Delivery:</h3>
-            <h3 className="font-bold">${deliveryPrice}</h3>
-          </div>
-          <div className="flex my-3 border-t pt-3 border-dashed border-blueColor">
-            <h3 className="grow font-bold text-gray-400">Total:</h3>
-            <h3 className="font-bold">${total}</h3>
-          </div>
-        </div>
-        <input
-          type="hidden"
-          name="products"
-          value={selectedProducts.join(",")}
-        />
-        <button
-          type="submit"
-          className="bg-blueColor px-5 py-4 text-[1.2rem] rounded-xl font-bold text-white w-full my-4 shadow-blueColor shadow-md"
+            )
+          })}
+        <form
+          action="/api/checkout"
+          method="POST"
+          className="flex items-center flex-col"
         >
-          Pay ${total}
-        </button>
-      </form>
+          <div className="mt-8">
+            <input
+              name="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className="bg-gray-100 w-full rounded-lg px-4 py-4 mb-2"
+              type="text"
+              placeholder="Street address, number"
+            />
+            <input
+              name="city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className="bg-gray-100 w-full rounded-lg px-4 py-4 mb-2"
+              type="text"
+              placeholder="City and postal code"
+            />
+            <input
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="bg-gray-100 w-full rounded-lg px-4 py-4 mb-2"
+              type="text"
+              placeholder="Your name"
+            />
+            <input
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="bg-gray-100 w-full rounded-lg px-4 py-4 mb-2"
+              type="email"
+              placeholder="Email address"
+            />
+          </div>
+          <div className="mt-8 w-[50rem]">
+            <div className="flex my-3">
+              <h3 className="grow font-bold text-gray-400">Subtotal:</h3>
+              <h3 className="font-bold text-darkBlue">${subtotal}</h3>
+            </div>
+            <div className="flex my-3">
+              <h3 className="grow font-bold text-gray-400">Delivery:</h3>
+              <h3 className="font-bold text-darkBlue">${deliveryPrice}</h3>
+            </div>
+            <div className="flex my-3 border-t pt-3 border-dashed border-darkBlue">
+              <h3 className="grow font-bold text-gray-400">Total:</h3>
+              <h3 className="font-bold text-darkBlue">${total}</h3>
+            </div>
+          </div>
+          <input
+            type="hidden"
+            name="products"
+            value={selectedProducts.join(",")}
+          />
+          <button
+            type="submit"
+            className="bg-darkBlue w-full px-5 py-4 text-[1.2rem] rounded-xl font-bold text-white my-4"
+          >
+            Pay ${total}
+          </button>
+        </form>
+      </div>
     </Layout>
   )
 }

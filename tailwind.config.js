@@ -13,11 +13,13 @@ module.exports = {
     extend: {
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
-        'oswald': ['Oswald', 'sans-serif']
+        'pacifico': ['Pacifico', 'sans-serif'],
+        'roboto': ['Roboto', 'sans-serif']
       },
       colors: {
         'blueColor': '#e2bd80',
-        'greyIsh': '#C5CBC7'
+        'greyIsh': '#C5CBC7',
+        'darkBlue': '#1e1b36'
       }
     },
   },

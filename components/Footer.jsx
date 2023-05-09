@@ -1,64 +1,35 @@
-import Link from "next/link"
-import { useRouter } from "next/router"
-import React, { useContext } from "react"
-import { ProductsContext } from "./ProductsContext"
+import Image from "next/image"
+import React from "react"
+import logo from "../public/nostra.png"
 
 function Footer() {
-  const router = useRouter()
-  const path = router.pathname
-  const { selectedProducts } = useContext(ProductsContext)
-
   return (
-    <footer className="sticky bottom-[-1px] bg-white p-5 w-full flex border-t border-gray-200 justify-center sm:justify-between items-center space-x-12 sm:space-x-0 text-gray-600">
-      <Link
-        href={"/"}
-        className={
-          (path === "/" ? "text-blueColor" : "") +
-          " flex justify-center items-center flex-col"
-        }
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6 smm:w-4 smm:h-4"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-          />
-        </svg>
-        <span className="smm:text-[0.6rem]">Home</span>
-      </Link>
-      <Link
-        href={"/checkout"}
-        className={
-          (path === "/checkout" ? "text-blueColor" : "") +
-          " flex justify-center items-center flex-col"
-        }
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6 smm:w-4 smm:h-4"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-          />
-        </svg>
-        <span className="smm:text-[0.6rem]">Cart {selectedProducts.length}</span>
-      </Link>
-      <div className="text-black text-[0.9rem] smm:text-[0.6rem] sm:w-[10rem]">
-        &#169; Built & Designed by Hani Mohammed
+    <footer className="bg-gray-200 rounded-lg p-10 items-center flex flex-col">
+      <div className="flex gap-[6rem]">
+        <div>
+          <Image src={logo} alt="" className="w-24 mb-[-1.5rem] mt-[-2rem]"/>
+          <span className="text-[0.9rem] text-gray-700">Specializes in providing high-quality watches</span>
+        </div>
+        <div className="flex flex-col">
+          <h3 className="mb-2 font-semibold text-darkBlue">Shop</h3>
+          <span className="text-[0.9rem] mb-1 text-gray-700">All Collections</span>
+          <span className="text-[0.9rem] mb-1 text-gray-700">Winter Edition</span>
+          <span className="text-[0.9rem] mb-1 text-gray-700">Discount</span>
+        </div>
+        <div className="flex flex-col">
+          <h3 className="mb-2 font-semibold text-darkBlue">Company</h3>
+          <span className="text-[0.9rem] mb-1 text-gray-700">About Us</span>
+          <span className="text-[0.9rem] mb-1 text-gray-700">Contact</span>
+          <span className="text-[0.9rem] mb-1 text-gray-700">Affiliates</span>
+        </div>
+        <div className="flex flex-col">
+          <h3 className="mb-2 font-semibold text-darkBlue">Support</h3>
+          <span className="text-[0.9rem] mb-1 text-gray-700">FAQs</span>
+          <span className="text-[0.9rem] mb-1 text-gray-700">Cookie Policy</span>
+          <span className="text-[0.9rem] mb-1 text-gray-700">Terms of Use</span>
+        </div>
       </div>
+      <div className="mt-[2rem] text-[0.9rem] text-gray-700 mb-[-1rem]">Copyright &#169; Built & Designed by Hani Mohammed</div>
     </footer>
   )
 }

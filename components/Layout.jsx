@@ -1,21 +1,27 @@
 import React, { useContext, useEffect, useState } from "react"
 import Footer from "./Footer"
 import { ProductsContext } from "./ProductsContext"
+import Navbar from "./Navbar"
 
 function Layout({ children }) {
-  const {setSelectedProducts} = useContext(ProductsContext)
+  const { setSelectedProducts } = useContext(ProductsContext)
   const [success, setSuccess] = useState(false)
+
   useEffect(() => {
     if (window.location.href.includes("success")) {
       setSelectedProducts([])
       setSuccess(true)
+      setTimeout(() => {
+        setSuccess(false)
+      }, 5000)
     }
   }, [])
   return (
-    <div className="flex flex-col items-center sm:items-stretch md:items-stretch">
-      <div className="p-5 sm:flex sm:flex-col sm:overflow-hidden">
+    <div className="flex flex-col w-[65rem]">
+      <Navbar />
+      <div className="p-5">
         {success && (
-          <div className="mb-5 bg-blueColor text-white text-lg p-5 rounded-xl">
+          <div className="mb-5 bg-darkBlue text-white font-medium text-lg p-5 rounded-xl text-center">
             Thank you for your order!
           </div>
         )}
