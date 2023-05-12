@@ -38,7 +38,7 @@ function Value() {
             Satisfaction Guarantee
           </h4>
           <span className="text-[0.75rem] text-gray-500 mt-1">
-            Exchange the product you've purchased if it doesn't fit you.
+            Exchange the product you&apos;ve purchased if it doesn&apos;t fit you.
           </span>
         </div>
         <div className="flex flex-col">

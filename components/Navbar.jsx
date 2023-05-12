@@ -29,16 +29,16 @@ function Navbar() {
         </Link>
         <ul className="flex justify-between text-[0.8rem] gap-5 sm:hidden">
           <li>
-            <a href="/">Shop</a>
+            <Link href="/">Shop</Link>
           </li>
           <li>
-            <a href="/">Brands</a>
+            <Link href="/">Brands</Link>
           </li>
           <li>
-            <a href="/">Why Us</a>
+            <Link href="/">Why Us</Link>
           </li>
           <li>
-            <a href="/">Contact</a>
+            <Link href="/">Contact</Link>
           </li>
         </ul>
         <div className="flex items-center gap-5">
