@@ -6,15 +6,22 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'md': {'max': '880px'},
-      'sm': {'max': '480px'},
-      'smm': {'max': '280px'},
+      'mlg': {'max': "896px"},
+      'lg': {'max': '880px'},
+      'md': {'max': '668px'},
+      'mmd': {'max': '600px'},
+      'smd': {'min': '335px' , 'max': '563px'},
+      'sm': {'max': '510px'},
+      'msm': {'max': '375px'},
     },
     extend: {
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
         'pacifico': ['Pacifico', 'sans-serif'],
         'roboto': ['Roboto', 'sans-serif']
+      },
+      gridTemplateColumns: {
+        'grid1': "repeat(auto-fit, minmax(250px, 1fr))"
       },
       colors: {
         'blueColor': '#e2bd80',

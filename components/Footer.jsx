@@ -4,8 +4,8 @@ import logo from "../public/nostra.png"
 
 function Footer() {
   return (
-    <footer className="bg-gray-200 rounded-lg p-10 items-center flex flex-col">
-      <div className="flex gap-[6rem]">
+    <footer className="bg-gray-200 rounded-lg p-10">
+      <div className="flex justify-between gap-[2rem] mmd:grid grid-cols-2">
         <div>
           <Image src={logo} alt="" className="w-24 mb-[-1.5rem] mt-[-2rem]"/>
           <span className="text-[0.9rem] text-gray-700">Specializes in providing high-quality watches</span>

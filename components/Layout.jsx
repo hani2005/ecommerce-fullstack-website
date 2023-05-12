@@ -17,7 +17,7 @@ function Layout({ children }) {
     }
   }, [])
   return (
-    <div className="flex flex-col w-[65rem]">
+    <div className="flex flex-col max-w-[75rem]">
       <Navbar />
       <div className="p-5">
         {success && (

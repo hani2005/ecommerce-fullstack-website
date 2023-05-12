@@ -25,10 +25,10 @@ export default function Home({ products }) {
       <Brands />
       <Value />
       <div className="mt-20">
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="font-bold text-[1.5rem] mb-5">Featured Products</h2>
+        <div className="flex items-center justify-between mb-10 md:flex-col">
+          <h2 className="font-bold text-[1.5rem] mb-5 md:text-[2rem] md:mb-8 sm:text-[1.5rem]">Featured Products</h2>
           <div className="gap-10 rounded-[10px]">
-            <div className="flex justify-between items-center rounded-lg gap-[10px] py-[25px] px-[10px] shadow-lg">
+            <div className="flex justify-between items-center rounded-[20px] gap-[10px] py-[25px] px-[10px] sm:py-[15px] sm:px-[5px] shadow-lg">
               <div className="flex gap-2 items-center px-[20px] ">
                 <AiOutlineSearch className="text-[25px] icon" />
                 <input
@@ -42,19 +42,22 @@ export default function Home({ products }) {
           </div>
         </div>
         {categoriesNames.map((categoryName) => (
-          <div key={categoryName} className="flex flex-col items-center">
+          <div key={categoryName} className="">
             {products.find((p) => p.category === categoryName) && (
-              <div className="flex items-center flex-col mb-14">
-                <div className="flex -mx-5 overflow-x-scroll snap-x scrollbar-hide">
+              <>
+                <h2 className="text-[2rem] py-5 font-pacifico font-bold capitalize">
+                  {categoryName}
+                </h2>
+                <div className="grid grid-cols-grid1 gap-4 mb-10 mmd:gap-6">
                   {products
                     .filter((p) => p.category === categoryName)
                     .map((productInfo) => (
-                      <div key={productInfo._id} className="px-5 snap-start">
+                      <div key={productInfo._id} className="">
                         <Product {...productInfo} />
                       </div>
                     ))}
                 </div>
-              </div>
+              </>
             )}
           </div>
         ))}

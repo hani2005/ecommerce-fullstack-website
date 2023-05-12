@@ -12,27 +12,25 @@ function Product({ _id, name, price, description, picture }) {
   }
 
   return (
-    <div className="w-56">
+    <div className="">
       <Link href={`/products/${_id}`}>
         <img src={picture} alt="" className="rounded-xl object-cover" />
       </Link>
       <div className="mt-4 mb-[-0.5rem]">
-        <h3 className="font-medium text-[0.9rem] text-gray-600">{name}</h3>
+        <h3 className="font-medium text-[0.9rem] smd:text-[1.2rem] text-gray-600">
+          {name}
+        </h3>
       </div>
-      <div className="flex items-center mt-4">
+      <div className="flex mt-4 smd:mt-3">
         <div className="text-[1.1rem] font-bold grow text-gray-600 flex items-center ml-[-0.2rem]">
-          <div>
-            <BiDollar className="text-[1.3rem] text-gray-700 mr-[-0.2rem] mb-[0.2rem]" />
-          </div>
-          <div>
-            <span>{price}</span>
-          </div>
+          <BiDollar className="text-[1.3rem] smd:text-[1.5rem] text-gray-700 mr-[-0.2rem]" />
+          <span className="smd:text-[1.3rem]">{price}</span>
         </div>
         <button
           onClick={addProduct}
-          className="bg-darkBlue text-white py-3 px-3 rounded-xl"
+          className="bg-darkBlue text-white py-3 smd:p-4 px-3 rounded-xl"
         >
-          <AiOutlineShoppingCart />
+          <AiOutlineShoppingCart  className="smd:text-[1.5rem]"/>
         </button>
       </div>
     </div>

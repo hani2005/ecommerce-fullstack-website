@@ -4,7 +4,7 @@ function Brands() {
   return (
     <div className="mt-[6rem]">
       <h2 className="mb-8 mt-[-2rem] font-bold text-[1.5rem]">Brands</h2>
-      <div className="flex items-center justify-between px-5">
+      <div className="flex items-center justify-between px-5 md:grid grid-cols-4 md:pl-[15%] msm:pl-[1rem] sm:gap-3 sm:pl-[10%]">
         <img
           src="https://static.cdnlogo.com/logos/t/86/timex.svg"
           alt=""
