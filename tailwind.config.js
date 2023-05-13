@@ -21,7 +21,7 @@ module.exports = {
         'roboto': ['Roboto', 'sans-serif']
       },
       gridTemplateColumns: {
-        'grid1': "repeat(auto-fit, minmax(250px, 1fr))"
+        'grid1': "repeat(auto-fit, minmax(200px, 1fr))"
       },
       colors: {
         'blueColor': '#e2bd80',

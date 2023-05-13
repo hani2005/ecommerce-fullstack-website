@@ -12,7 +12,7 @@ function Product({ _id, name, price, description, picture }) {
   }
 
   return (
-    <div className="">
+    <div className="w-full">
       <Link href={`/products/${_id}`}>
         <img src={picture} alt="" className="rounded-xl object-cover" />
       </Link>
