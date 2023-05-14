@@ -10,16 +10,26 @@
 @tailwind utilities;
 
 body {
-  font-family: "Roboto", sans-serif;
-  display: flex;
+  font-family: "Poppins", sans-serif;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
 }
 
-@media screen and (max-width: 1205px) {
+/* @media screen and (max-width: 1205px) {
   body {
     align-items: stretch;
   }
+} */
+
+.navbar a {
+  padding: 0.7rem;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
+.navbar a:hover {
+  background-color: rgb(231, 231, 231);
 }
 
 aside {
@@ -83,11 +93,11 @@ aside a:hover {
 .backdrop.active {
   display: block;
 }
-/* 
+
 .swiper-scrollbar-drag {
   background: #1e1b36 !important;
 }
 
-.swiper-wrapper {
-  display: inline !important;
-} */
+.swiper-horizontal>.swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal {
+  height: 8px !important;
+}

@@ -7,7 +7,7 @@ function Footer() {
     <footer className="bg-gray-200 rounded-lg p-10">
       <div className="flex justify-between gap-[2rem] mmd:grid grid-cols-2">
         <div>
-          <Image src={logo} alt="" className="w-24 mb-[-1.5rem] mt-[-2rem]"/>
+          <h1 className="text-[1.7rem] font-semibold">VALOR</h1>
           <span className="text-[0.9rem] text-gray-700">Specializes in providing high-quality watches</span>
         </div>
         <div className="flex flex-col">

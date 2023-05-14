@@ -13,6 +13,8 @@ import { Navigation, Scrollbar } from "swiper"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/scrollbar"
+import OfferSection from "@/components/OfferSection"
+import Footer from "@/components/Footer"
 
 export default function Home({ products }) {
   const [search, setSearch] = useState("")
@@ -28,10 +30,11 @@ export default function Home({ products }) {
   return (
     <Layout>
       <Banner />
-      <Brands />
-      <Value />
-      <Category />
-      {/* <div className="mt-20">
+      <div className="max-w-[77.6rem]">
+        <Brands />
+        <Value />
+        <Category />
+        {/* <div className="mt-20">
         {categoriesNames.map((categoryName) => (
           <div key={categoryName} className="">
             {products.find((p) => p.category === categoryName) && (
@@ -53,23 +56,31 @@ export default function Home({ products }) {
           </div>
         ))}
       </div> */}
-      <h2 className="font-bold text-[1.5rem] mb-5 md:text-[2rem] md:mb-8 sm:text-[1.5rem]">
-        Featured Products
-      </h2>
-      <Swiper
-        modules={[Scrollbar]}
-        spaceBetween={50}
-        slidesPerView={1}
-        scrollbar={{ draggable: true }}
-      >
-        <div className="">
-          {products.map((productInfo) => (
-            <SwiperSlide key={productInfo._id} className="">
-              <Product {...productInfo} />
-            </SwiperSlide>
-          ))}
+        <div className="p-5">
+          <h2 className="font-semibold text-[1.6rem] md:text-[2rem] sm:text-[1.5rem]">
+            Featured Products
+          </h2>
+          <Swiper
+            modules={[Scrollbar]}
+            spaceBetween={30}
+            breakpoints={{
+              500: {
+                width: 500,
+                slidesPerView: 1.5
+              }
+            }}
+            scrollbar={{ draggable: true }}
+          >
+            {products.map((productInfo) => (
+              <SwiperSlide key={productInfo._id} className="mb-8 mt-5">
+                <Product {...productInfo} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-      </Swiper>
+        <OfferSection />
+        <Footer />
+      </div>
     </Layout>
   )
 }

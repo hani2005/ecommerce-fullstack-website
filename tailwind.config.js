@@ -6,6 +6,7 @@ module.exports = {
   ],
   theme: {
     screens: {
+      'screen': {'max': '1240px'},
       'mlg': {'max': "896px"},
       'lg': {'max': '880px'},
       'md': {'max': '668px'},
@@ -26,7 +27,7 @@ module.exports = {
       colors: {
         'blueColor': '#e2bd80',
         'greyIsh': '#C5CBC7',
-        'darkBlue': '#1e1b36'
+        'darkBlue': '#090810'
       }
     },
   },

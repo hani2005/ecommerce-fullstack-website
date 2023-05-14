@@ -8,9 +8,9 @@ import { FaShippingFast } from "react-icons/fa"
 
 function Value() {
   return (
-    <div className="mt-10">
+    <div className="mt-16 p-5">
       <div className="flex items-center justify-between lg:flex-col lg:items-baseline">
-        <h2 className="mb-8 lg:mb-0 mt-[4rem] font-bold leading-7 text-[1.5rem]">
+        <h2 className="mb-8 lg:mb-0 mt-[4rem] font-semibold leading-7 text-[1.5rem]">
           We provide best
           <br /> customer experiences
         </h2>
@@ -38,7 +38,8 @@ function Value() {
             Satisfaction Guarantee
           </h4>
           <span className="text-[0.75rem] text-gray-500 mt-1">
-            Exchange the product you&apos;ve purchased if it doesn&apos;t fit you.
+            Exchange the product you&apos;ve purchased if it doesn&apos;t fit
+            you.
           </span>
         </div>
         <div className="flex flex-col">
