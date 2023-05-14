@@ -9,18 +9,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: "Poppins", sans-serif;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
+* {
+  outline: none;
 }
 
-/* @media screen and (max-width: 1205px) {
-  body {
-    align-items: stretch;
-  }
-} */
+body {
+  font-family: "Poppins", sans-serif;
+}
 
 .navbar a {
   padding: 0.7rem;

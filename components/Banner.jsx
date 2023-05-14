@@ -1,3 +1,4 @@
+import Link from "next/link"
 import React from "react"
 import { BsArrowRight } from "react-icons/bs"
 
@@ -9,12 +10,12 @@ function Banner() {
         alt=""
         className="rounded-xl"
       />
-      <div className="absolute bottom-50 lg:bottom-2 flex flex-col items-center">
-        <h1 className="text-[4rem] lg:text-[2.5rem] lg:leading-[3.8rem] md:text-[1.95rem] md:leading-[3rem] sm:hidden text-gray-100 font-semibold text-center">
+      <div className="absolute flex flex-col items-center">
+        <h1 className="text-[4rem] text-gray-100 font-semibold text-center">
           VALOR
         </h1>
         <div className="flex items-center bg-gray-100 p-3 rounded-lg gap-3 cursor-pointer">
-          <button className="text-[0.9rem] font-semibold text-gray-700">Shop Now</button>
+          <Link href={"/categories"} className="text-[0.9rem] outline-none font-semibold text-gray-700">Shop Now</Link>
           <BsArrowRight className="text-[1.1rem] mt-[0.1rem] text-gray-700" />
         </div>
       </div>

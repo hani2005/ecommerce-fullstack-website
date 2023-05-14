@@ -1,3 +1,4 @@
+import Link from "next/link"
 import React from "react"
 
 function Category() {
@@ -13,7 +14,7 @@ function Category() {
             alt=""
             className="rounded-xl object-cover w-full h-[18rem]"
           />
-          <button className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-700 text-[0.9rem] font-semibold">Shop Rolex</button>
+          <Link href={"/categories"} className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-800 text-[0.9rem] font-semibold">Shop Rolex</Link>
         </div>
         <div className="relative">
           <img
@@ -21,7 +22,7 @@ function Category() {
             alt=""
             className="rounded-xl object-cover w-full h-[18rem]"
           />
-          <button className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-700 text-[0.9rem] font-semibold">Shop Omega</button>
+          <Link href={"/categories"} className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-800 text-[0.9rem] font-semibold">Shop Omega</Link>
         </div>
         <div className="relative">
           <img
@@ -29,7 +30,7 @@ function Category() {
             alt=""
             className="rounded-xl object-cover w-full h-[18rem]"
           />
-          <button className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-700 text-[0.9rem] font-semibold">Shop Longines</button>
+          <Link href={"/categories"} className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-800 text-[0.9rem] font-semibold">Shop Longines</Link>
         </div>
         <div className="relative">
           <img
@@ -37,7 +38,7 @@ function Category() {
             alt=""
             className="rounded-xl object-cover w-full h-[18rem]"
           />
-          <button className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-700 text-[0.9rem] font-semibold">Shop Timex</button>
+          <Link href={"/categories"} className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-800 text-[0.9rem] font-semibold">Shop Timex</Link>
         </div>
       </div>
     </div>

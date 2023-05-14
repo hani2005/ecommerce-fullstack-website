@@ -12,9 +12,9 @@ function Product({ _id, name, price, description, picture }) {
   }
 
   return (
-    <div className="w-full">
+    <div className="">
       <Link href={`/products/${_id}`}>
-        <img src={picture} alt="" className="rounded-xl object-cover" />
+        <img src={picture} alt="" className="rounded-xl shadow-lg" />
       </Link>
       <div className="mt-4 mb-[-0.5rem]">
         <h3 className="font-medium text-[0.9rem] smd:text-[1.2rem] text-gray-600">

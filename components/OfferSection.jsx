@@ -15,7 +15,7 @@ function OfferSection() {
         </div>
         <div>
           <span className="text-gray-300 font-medium">LIMITED OFFER</span>
-          <h1 className="text-white text-[2.9rem] my-5 font-semibold leading-[3.5rem]">
+          <h1 className="text-white text-[2.9rem] screen1:text-[2.1rem] screen1:leading-[2.7rem] my-5 screen1:my-8 font-semibold leading-[3.5rem]">
             35% off only this friday
             <br /> and get special gift
           </h1>

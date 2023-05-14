@@ -6,6 +6,8 @@ import { BiDollar } from "react-icons/bi"
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import { ProductsContext } from "@/components/ProductsContext"
 import Link from "next/link"
+import OfferSection from "@/components/OfferSection"
+import { MdArrowForwardIos } from "react-icons/md"
 
 const ProductDetails = ({ product }) => {
   const { selectedProducts, setSelectedProducts } = useContext(ProductsContext)
@@ -24,64 +26,84 @@ const ProductDetails = ({ product }) => {
 
   return (
     <Layout>
-      <div className="flex gap-6">
-        <div className="">
-          <div className="w-[20.5rem]">
-            <img src={product.picture} alt="" className="rounded-lg" />
-          </div>
-          <div className="flex gap-2 mt-2">
-            <img
-              src={product.thumb1}
-              alt=""
-              className="w-[6.5rem] rounded-lg"
-            />
-            <img
-              src={product.thumb2}
-              alt=""
-              className="w-[6.5rem] rounded-lg"
-            />
-            <img
-              src={product.thumb3}
-              alt=""
-              className="w-[6.5rem] rounded-lg"
-            />
+      <div className="flex items-center mt-10 gap-5">
+        <Link
+          href={"/"}
+          className="text-gray-400 text-[1.2rem] font-medium tracking-[-1px]"
+        >
+          Home
+        </Link>
+        <MdArrowForwardIos className="text-gray-400" />
+        <span className="font-semibold tracking-[-1px] text-[1.2rem]">
+          Product Page
+        </span>
+        <MdArrowForwardIos />
+        <Link
+          href={"/categories"}
+          className="text-gray-400 text-[1.2rem] font-medium tracking-[-1px]"
+        >
+          Categories
+        </Link>
+        <MdArrowForwardIos className="text-gray-400" />
+        <Link
+          href={"/checkout"}
+          className="text-gray-400 text-[1.2rem] font-medium tracking-[-1px]"
+        >
+          Cart
+        </Link>
+        <MdArrowForwardIos className="text-gray-400" />
+      </div>
+      <div className="flex gap-6 my-20">
+        <div className="flex-[1.5]">
+          <img src={product.picture} alt="" className="rounded-lg w-full" />
+          <div className="grid grid-cols-3 gap-2 mt-2">
+            <img src={product.thumb1} alt="" className="w-full rounded-lg" />
+            <img src={product.thumb2} alt="" className="w-full rounded-lg" />
+            <img src={product.thumb3} alt="" className="w-full rounded-lg" />
           </div>
         </div>
-        <div className="mt-5">
-          <span className="capitalize text-[1.1rem]">{product.category}</span>
-          <h2 className="text-[1.5rem] font-medium tracking-[-0.5px] mb-5">
+        <div className="flex flex-col flex-[2]">
+          <h2 className="text-[1.8rem] font-semibold tracking-[-1px] mb-1">
             {product.name}
           </h2>
-          <h4 className="font-bold mb-2">Description:</h4>
-          <p className="font-normal tracking-[-0.5px]">{product.description}</p>
-          <span className="text-darkBlue font-bold text-[1.4rem] flex items-center mt-2">
-            <BiDollar className="mr-[-0.3rem] ml-[-0.2rem]" />
-            {product.price}
+          <span className="capitalize text-[1.2rem] mb-5">
+            {product.category}
           </span>
+          <span className="text-darkBlue font-semibold text-[1.8rem]">
+            ${product.price}
+          </span>
+          <h4 className="font-bold text-[1.2rem] mb-2 mt-5">Description:</h4>
+          <p className="font-normal text-[1.2rem] tracking-[-0.5px] mb-8">
+            {product.description}
+          </p>
           <div className="flex mt-7 items-center">
-            <div className="flex items-center border-gray-200 border-[1px] p-[0.7rem] rounded-lg">
+            <div className="flex items-center border-gray-200 border-[1px] px-5 py-4 rounded-lg">
               <button
                 onClick={() => lessOfThisProduct(product._id)}
                 className=""
               >
-                <AiOutlineMinus className="text-[1.2rem]" />
+                <AiOutlineMinus className="text-[1.3rem] text-black" />
               </button>
-              <span className="px-5 text-[1.1rem]">
+              <span className="px-5 text-[1.3rem] font-semibold">
                 {selectedProducts.filter((id) => id === product._id).length}
               </span>
               <button
                 onClick={() => moreOfThisProduct(product._id)}
                 className=""
               >
-                <AiOutlinePlus className="text-[1.2rem]" />
+                <AiOutlinePlus className="text-[1.3rem] text-black" />
               </button>
             </div>
-            <Link href={"/checkout"} className="ml-6 px-8 bg-darkBlue p-[0.7rem] rounded-lg">
-              <button className="text-white text-[0.9rem]">Go to Cart</button>
+            <Link
+              href={"/checkout"}
+              className="ml-6 px-6 py-[1.05rem] text-[1.15rem] bg-darkBlue rounded-lg font-normal text-gray-50"
+            >
+              Go to Cart
             </Link>
           </div>
         </div>
       </div>
+      <OfferSection />
     </Layout>
   )
 }
@@ -89,7 +111,6 @@ const ProductDetails = ({ product }) => {
 export async function getServerSideProps(context) {
   await connectMongoose()
   const { id } = context.query
-  console.log(context.query)
   const product = await Product.findById(id)
   return {
     props: {

@@ -7,11 +7,13 @@ module.exports = {
   theme: {
     screens: {
       'screen': {'max': '1240px'},
+      'screen1': {'max': '1140px'},
       'mlg': {'max': "896px"},
       'lg': {'max': '880px'},
       'md': {'max': '668px'},
       'mmd': {'max': '600px'},
       'smd': {'min': '335px' , 'max': '563px'},
+      'screen2': {'max': '580px'},
       'sm': {'max': '510px'},
       'msm': {'max': '375px'},
     },
