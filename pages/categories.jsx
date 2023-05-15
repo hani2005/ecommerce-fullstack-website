@@ -8,7 +8,7 @@ import { IoIosArrowDown } from "react-icons/io"
 import Link from "next/link"
 import { MdArrowForwardIos } from "react-icons/md"
 
-function categories({ products }) {
+function Categories({ products }) {
   const [data, setData] = useState(products)
 
   const setCategory = (catItem) => {
@@ -101,4 +101,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default categories
+export default Categories
