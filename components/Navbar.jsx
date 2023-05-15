@@ -1,10 +1,13 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import logo from "../public/nostra.png"
 import Image from "next/image"
 import { AiOutlineShoppingCart } from "react-icons/ai"
 import Link from "next/link"
 import { ProductsContext } from "./ProductsContext"
 import { BiMenu } from "react-icons/bi"
+import { IoIosArrowDown } from "react-icons/io"
+import Aos from "aos"
+import "aos/dist/aos.css"
 
 function Navbar() {
   const { selectedProducts } = useContext(ProductsContext)
@@ -21,16 +24,36 @@ function Navbar() {
     setAside("aside")
   }
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
+
   return (
     <>
-      <div className="flex items-center fixed justify-between w-full bg-white z-10 py-6 px-10">
+      <div className="flex msm:flex-col msm:gap-4 mt-[-0.1rem] items-center fixed justify-between w-full shadow-lg bg-white z-10 py-6 px-10">
         <Link href={"/"}>
-          <h1 className="text-[1.7rem] font-semibold">VALOR</h1>
+          <h1
+            data-aos="fade-up"
+            data-aos-once="true"
+            data-aos-duration="1000"
+            className="text-[1.7rem] font-semibold"
+          >
+            VALOR
+          </h1>
         </Link>
-        <ul className="navbar flex justify-between text-[0.8rem] sm:hidden">
+        <ul
+          data-aos="fade-up"
+          data-aos-once="true"
+          data-aos-duration="2000"
+          className="navbar flex justify-between items-center text-[0.8rem] md:hidden"
+        >
           <li>
-            <Link href="/" className="text-[1rem] font-semibold">
+            <Link
+              href="/categories"
+              className="text-[1rem] flex items-center gap-3 font-semibold"
+            >
               Shop
+              <IoIosArrowDown className="text-[1.2rem]" />
             </Link>
           </li>
           <li>
@@ -49,14 +72,22 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-        <div className="flex items-center gap-5">
+        <div
+          data-aos="fade-up"
+          data-aos-once="true"
+          data-aos-duration="3000"
+          className="flex items-center gap-5 msm:gap-10"
+        >
           <Link href={"/checkout"} className="flex items-center gap-2">
             <AiOutlineShoppingCart className="text-[1.5rem]" />
             <span className="text-[0.95rem] mt-1 font-semibold">
               Cart {selectedProducts.length}
             </span>
           </Link>
-          <div className="menu hidden sm:block" onClick={openMenu}>
+          <div
+            className="menu hidden md:text-[1.8rem] md:block"
+            onClick={openMenu}
+          >
             <BiMenu />
           </div>
         </div>

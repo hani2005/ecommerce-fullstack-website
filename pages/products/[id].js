@@ -1,8 +1,9 @@
 import { connectMongoose } from "@/lib/mongoose"
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import Product from "@/models/Product"
 import Layout from "@/components/Layout"
-import { BiDollar } from "react-icons/bi"
+import Aos from "aos"
+import "aos/dist/aos.css"
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import { ProductsContext } from "@/components/ProductsContext"
 import Link from "next/link"
@@ -24,9 +25,18 @@ const ProductDetails = ({ product }) => {
     }
   }
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
+
   return (
     <Layout>
-      <div className="flex items-center mt-10 gap-5">
+      <div
+        data-aos="fade-right"
+        data-aos-once="true"
+        data-aos-duration="3000"
+        className="flex items-center mt-14 gap-5"
+      >
         <Link
           href={"/"}
           className="text-gray-400 text-[1.2rem] font-medium tracking-[-1px]"
@@ -53,7 +63,12 @@ const ProductDetails = ({ product }) => {
         </Link>
         <MdArrowForwardIos className="text-gray-400" />
       </div>
-      <div className="flex gap-6 my-20">
+      <div
+        data-aos="fade-up"
+        data-aos-once="true"
+        data-aos-duration="1000"
+        className="flex gap-6 my-20"
+      >
         <div className="flex-[1.5]">
           <img src={product.picture} alt="" className="rounded-lg w-full" />
           <div className="grid grid-cols-3 gap-2 mt-2">

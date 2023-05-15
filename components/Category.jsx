@@ -1,10 +1,16 @@
 import Link from "next/link"
-import React from "react"
+import React, { useEffect } from "react"
+import Aos from "aos"
+import "aos/dist/aos.css"
 
 function Category() {
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
+
   return (
-    <div className="my-32 p-5">
-      <h2 className="font-semibold text-[1.6rem] tracking-[-0.5px] mb-5 md:text-[2rem] md:mb-8 sm:text-[1.5rem]">
+    <div className="mt-[6rem] mb-[4rem] p-5">
+      <h2 data-aos="fade-up" data-aos-once="true" className="font-semibold  text-[1.6rem] tracking-[-0.5px] mb-5 md:text-[2rem] md:mb-8 sm:text-[1.5rem]">
         Curated Picks
       </h2>
       <div className="grid grid-cols-grid1 gap-4 mb-10 mmd:gap-6">
@@ -14,7 +20,7 @@ function Category() {
             alt=""
             className="rounded-xl object-cover w-full h-[18rem]"
           />
-          <Link href={"/categories"} className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-800 text-[0.9rem] font-semibold">Shop Rolex</Link>
+          <Link href={"/categories"} data-aos="fade-up" data-aos-once="true" className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-800 text-[0.9rem] font-semibold">Shop Rolex</Link>
         </div>
         <div className="relative">
           <img
@@ -22,7 +28,7 @@ function Category() {
             alt=""
             className="rounded-xl object-cover w-full h-[18rem]"
           />
-          <Link href={"/categories"} className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-800 text-[0.9rem] font-semibold">Shop Omega</Link>
+          <Link href={"/categories"} data-aos="fade-up" data-aos-once="true" className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-800 text-[0.9rem] font-semibold">Shop Omega</Link>
         </div>
         <div className="relative">
           <img
@@ -30,7 +36,7 @@ function Category() {
             alt=""
             className="rounded-xl object-cover w-full h-[18rem]"
           />
-          <Link href={"/categories"} className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-800 text-[0.9rem] font-semibold">Shop Longines</Link>
+          <Link href={"/categories"} data-aos="fade-up" data-aos-once="true" className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-800 text-[0.9rem] font-semibold">Shop Longines</Link>
         </div>
         <div className="relative">
           <img
@@ -38,7 +44,7 @@ function Category() {
             alt=""
             className="rounded-xl object-cover w-full h-[18rem]"
           />
-          <Link href={"/categories"} className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-800 text-[0.9rem] font-semibold">Shop Timex</Link>
+          <Link href={"/categories"} data-aos="fade-up" data-aos-once="true" className="absolute bottom-4 left-4 bg-white rounded-lg p-3 text-gray-800 text-[0.9rem] font-semibold">Shop Timex</Link>
         </div>
       </div>
     </div>

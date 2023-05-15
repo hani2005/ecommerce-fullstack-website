@@ -12,8 +12,15 @@ import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/scrollbar"
 import OfferSection from "@/components/OfferSection"
+import Aos from "aos"
+import "aos/dist/aos.css"
+import { useEffect } from "react"
 
 export default function Home({ products }) {
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
+
   return (
     <Layout>
       <Banner />
@@ -21,10 +28,16 @@ export default function Home({ products }) {
       <Value />
       <Category />
       <div className="p-5">
-        <h2 className="font-semibold text-[1.6rem] md:text-[2rem] sm:text-[1.5rem]">
+        <h2
+          data-aos="fade-up"
+          data-aos-once="true"
+          className="font-semibold text-[1.6rem] md:text-[2rem] sm:text-[1.5rem]"
+        >
           Featured Products
         </h2>
         <Swiper
+          // data-aos="fade-left"
+          // data-aos-once="true"
           modules={[Scrollbar]}
           spaceBetween={30}
           breakpoints={{

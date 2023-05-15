@@ -1,12 +1,14 @@
 import Layout from "@/components/Layout"
 import { connectMongoose } from "@/lib/mongoose"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { findAllProducts } from "./api/products"
 import Product from "@/components/Product"
 import OfferSection from "@/components/OfferSection"
 import { IoIosArrowDown } from "react-icons/io"
 import Link from "next/link"
 import { MdArrowForwardIos } from "react-icons/md"
+import Aos from "aos"
+import "aos/dist/aos.css"
 
 function Categories({ products }) {
   const [data, setData] = useState(products)
@@ -18,9 +20,17 @@ function Categories({ products }) {
     setData(result)
   }
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
+
   return (
     <Layout>
-      <div className="flex items-center mt-10 gap-5">
+      <div
+        data-aos="fade-up"
+        data-aos-once="true"
+        className="flex items-center mt-14 gap-5 p-3"
+      >
         <Link
           href={"/"}
           className="text-gray-400 text-[1.2rem] font-medium tracking-[-1px]"
@@ -40,7 +50,11 @@ function Categories({ products }) {
         </Link>
         <MdArrowForwardIos className="text-gray-400" />
       </div>
-      <div className="flex items-center justify-center gap-10 my-10">
+      <div
+        data-aos="fade-up"
+        data-aos-once="true"
+        className="flex items-center justify-center gap-10 my-10"
+      >
         <div
           className="flex items-center cursor-pointer gap-2  px-4 py-2 rounded-lg"
           onClick={() => setData(products)}
@@ -77,14 +91,12 @@ function Categories({ products }) {
           <IoIosArrowDown />
         </div>
       </div>
-      <div>
-        <div className="flex flex-wrap justify-center gap-10 mb-5 screen2:grid grid-cols-grid1 p-2 screen2:gap-5">
-          {data.map((item) => (
-            <div key={item._id} className="w-64 screen2:w-full">
-              <Product {...item} />
-            </div>
-          ))}
-        </div>
+      <div data-aos="fade-up" data-aos-once="true" className="flex flex-wrap justify-center gap-10 mb-5 screen2:grid grid-cols-grid1 p-2 screen2:gap-5">
+        {data.map((item) => (
+          <div key={item._id} className="w-64 screen2:w-full">
+            <Product {...item} />
+          </div>
+        ))}
       </div>
       <OfferSection />
     </Layout>

@@ -1,15 +1,14 @@
 import Layout from "../components/Layout"
 import { useContext, useEffect, useState } from "react"
 import { ProductsContext } from "../components/ProductsContext"
-import { HiArrowNarrowLeft } from "react-icons/hi"
 import Link from "next/link"
 import {
   AiOutlineMinus,
-  AiOutlineMinusCircle,
   AiOutlinePlus,
-  AiOutlinePlusCircle
 } from "react-icons/ai"
 import { MdArrowForwardIos } from "react-icons/md"
+import Aos from "aos"
+import "aos/dist/aos.css"
 
 export default function CheckoutPage() {
   const { selectedProducts, setSelectedProducts } = useContext(ProductsContext)
@@ -48,9 +47,13 @@ export default function CheckoutPage() {
   }
   const total = subtotal + deliveryPrice
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
+
   return (
     <Layout>
-      <div className="flex items-center mt-10 gap-5">
+      <div className="flex items-center mt-10 msm:mt-20 gap-5 p-3">
         <Link
           href={"/"}
           className="text-gray-400 text-[1.2rem] font-medium tracking-[-1px]"
@@ -62,10 +65,10 @@ export default function CheckoutPage() {
           Cart
         </span>
       </div>
-      <div className="flex my-16 justify-between">
+      <div className="flex lg:flex-col my-16 justify-between p-3">
         <div className="flex-[3]">
           {!productsInfos.length && (
-            <div>no products in your shopping cart</div>
+            <h1>No products in your shopping cart</h1>
           )}
           {productsInfos.length &&
             productsInfos.map((productInfo) => {
@@ -74,30 +77,30 @@ export default function CheckoutPage() {
               ).length
               if (amount === 0) return
               return (
-                <div className="flex mb-10 pb-10 border-b border-gray-300" key={productInfo._id}>
+                <div className="flex sm:flex-col mb-10 pb-10 border-b border-gray-300" key={productInfo._id}>
                   <div className="shrink-0">
                     <img
-                      className="w-40 rounded-lg"
+                      className="w-40 rounded-lg sm:mb-6"
                       src={productInfo.picture}
                       alt=""
                     />
                   </div>
-                  <div className="pl-4">
-                    <h3 className="font-semibold text-gray-700 text-[1.5rem] mb-1">
+                  <div className="pl-4 sm:pl-0">
+                    <h3 className="font-semibold text-gray-700 text-[1.5rem] sm:text-[1.2rem] mb-1">
                       {productInfo.name}
                     </h3>
                     <p className="capitalize text-[1.2rem] text-gray-500">
                       {productInfo.category}
                     </p>
-                    <div className="flex mt-8 gap-10 items-center">
+                    <div className="flex mt-8 sm:mt-4 gap-10 items-center">
                       <div className="flex items-center rounded-lg border border-gray-200 px-4 py-3">
                         <button
                           onClick={() => lessOfThisProduct(productInfo._id)}
                           className=""
                         >
-                          <AiOutlineMinus className="text-gray-900 text-[1.3rem]" />
+                          <AiOutlineMinus className="text-gray-900 text-[1.3rem] sm:text-[1rem]" />
                         </button>
-                        <span className="px-6 font-semibold text-[1.2rem]">
+                        <span className="px-6 sm:px-5 font-semibold text-[1.2rem]">
                           {
                             selectedProducts.filter(
                               (id) => id === productInfo._id
@@ -108,7 +111,7 @@ export default function CheckoutPage() {
                           onClick={() => moreOfThisProduct(productInfo._id)}
                           className=""
                         >
-                          <AiOutlinePlus className="text-gray-900 text-[1.3rem]" />
+                          <AiOutlinePlus className="text-gray-900 text-[1.3rem] sm:text-[1rem]" />
                         </button>
                       </div>
                       <div className="text-[1.4rem] text-gray-700 font-semibold">
