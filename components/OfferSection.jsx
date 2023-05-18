@@ -37,7 +37,7 @@ function OfferSection() {
         </div>
       </div>
       <div className="flex flex-col items-center mt-14 p-4">
-        <h2 data-aos="fade-up" data-aos-once="true" className="text-center text-[1.9rem] lg:text-[1.6rem] sm:text-[1.3rem] tracking-[-0.5px] font-semibold screen2:font-bold text-darkBlue">
+        <h2 data-aos="fade-up" data-aos-once="true" className="subscribe text-center text-[1.9rem] lg:text-[1.6rem] sm:text-[1.3rem] tracking-[-0.5px] font-semibold screen2:font-bold text-darkBlue">
           Subscribe to our newsletter to get updates
           <br /> to our latest collections
         </h2>
@@ -53,7 +53,7 @@ function OfferSection() {
               className="bg-transparent outline-none"
             />
           </div>
-          <button data-aos="fade-up" data-aos-once="true" className="p-4 lg:p-3 text-[white] bg-darkBlue rounded-lg">
+          <button data-aos="fade-up" data-aos-once="true" className="p-4 lg:p-3 w-full text-[white] bg-darkBlue rounded-lg">
             Subscribe
           </button>
         </div>

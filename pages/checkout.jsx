@@ -92,7 +92,7 @@ export default function CheckoutPage() {
                     <p className="capitalize text-[1.2rem] text-gray-500">
                       {productInfo.category}
                     </p>
-                    <div className="flex mt-8 sm:mt-4 gap-10 items-center">
+                    <div className="flex mt-8 sm:mt-4 gap-10 sm:gap-6 items-center">
                       <div className="flex items-center rounded-lg border border-gray-200 px-4 py-3">
                         <button
                           onClick={() => lessOfThisProduct(productInfo._id)}
@@ -123,7 +123,7 @@ export default function CheckoutPage() {
               )
             })}
         </div>
-        <div className="flex-[2] pl-4">
+        <div className="flex-[2] pl-4 lg:pl-0">
           <form action="/api/checkout" method="POST" className="flex flex-col">
             <div className="">
               <input

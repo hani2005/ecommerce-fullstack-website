@@ -15,6 +15,7 @@ import OfferSection from "@/components/OfferSection"
 import Aos from "aos"
 import "aos/dist/aos.css"
 import { useEffect } from "react"
+import { Toaster } from "react-hot-toast"
 
 export default function Home({ products }) {
   useEffect(() => {
@@ -23,6 +24,9 @@ export default function Home({ products }) {
 
   return (
     <Layout>
+      <div>
+        <Toaster />
+      </div>
       <Banner />
       <Brands />
       <Value />

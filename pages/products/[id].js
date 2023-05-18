@@ -9,13 +9,16 @@ import { ProductsContext } from "@/components/ProductsContext"
 import Link from "next/link"
 import OfferSection from "@/components/OfferSection"
 import { MdArrowForwardIos } from "react-icons/md"
+import { Toaster, toast } from "react-hot-toast"
 
 const ProductDetails = ({ product }) => {
   const { selectedProducts, setSelectedProducts } = useContext(ProductsContext)
 
   function moreOfThisProduct(id) {
     setSelectedProducts((prev) => [...prev, id])
+    toast.success("item add to the cart")
   }
+
   function lessOfThisProduct(id) {
     const pos = selectedProducts.indexOf(id)
     if (pos !== -1) {
@@ -23,6 +26,7 @@ const ProductDetails = ({ product }) => {
         return prev.filter((value, index) => index !== pos)
       })
     }
+    toast.success("item removed from the cart")
   }
 
   useEffect(() => {
@@ -31,33 +35,36 @@ const ProductDetails = ({ product }) => {
 
   return (
     <Layout>
+      <div>
+        <Toaster />
+      </div>
       <div
         data-aos="fade-right"
         data-aos-once="true"
         data-aos-duration="3000"
-        className="flex items-center mt-14 gap-5"
+        className="flex screen2:flex-wrap msm:gap-3 msm:mt-20 items-center mt-14 gap-5 p-2"
       >
         <Link
           href={"/"}
-          className="text-gray-400 text-[1.2rem] font-medium tracking-[-1px]"
+          className="text-gray-400 text-[1.2rem] screen2:text-[1rem] font-medium tracking-[-1px]"
         >
           Home
         </Link>
         <MdArrowForwardIos className="text-gray-400" />
-        <span className="font-semibold tracking-[-1px] text-[1.2rem]">
+        <span className="font-semibold tracking-[-1px] text-[1.2rem] screen2:text-[1rem]">
           Product Page
         </span>
         <MdArrowForwardIos />
         <Link
           href={"/categories"}
-          className="text-gray-400 text-[1.2rem] font-medium tracking-[-1px]"
+          className="text-gray-400 text-[1.2rem] screen2:text-[1rem] font-medium tracking-[-1px]"
         >
           Categories
         </Link>
         <MdArrowForwardIos className="text-gray-400" />
         <Link
           href={"/checkout"}
-          className="text-gray-400 text-[1.2rem] font-medium tracking-[-1px]"
+          className="text-gray-400 text-[1.2rem] screen2:text-[1rem] font-medium tracking-[-1px]"
         >
           Cart
         </Link>
@@ -67,7 +74,7 @@ const ProductDetails = ({ product }) => {
         data-aos="fade-up"
         data-aos-once="true"
         data-aos-duration="1000"
-        className="flex gap-6 my-20"
+        className="flex md:flex-col gap-6 my-20 p-2"
       >
         <div className="flex-[1.5]">
           <img src={product.picture} alt="" className="rounded-lg w-full" />

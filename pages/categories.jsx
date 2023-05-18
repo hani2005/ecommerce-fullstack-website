@@ -9,6 +9,7 @@ import Link from "next/link"
 import { MdArrowForwardIos } from "react-icons/md"
 import Aos from "aos"
 import "aos/dist/aos.css"
+import { Toaster } from "react-hot-toast"
 
 function Categories({ products }) {
   const [data, setData] = useState(products)
@@ -26,25 +27,28 @@ function Categories({ products }) {
 
   return (
     <Layout>
+      <div>
+        <Toaster />
+      </div>
       <div
         data-aos="fade-up"
         data-aos-once="true"
-        className="flex items-center mt-14 gap-5 p-3"
+        className="flex flex-wrap items-center mt-14 gap-5 sm:gap-2 sm:mt-20 p-3"
       >
         <Link
           href={"/"}
-          className="text-gray-400 text-[1.2rem] font-medium tracking-[-1px]"
+          className="text-gray-400 text-[1.2rem] sm:text-[1rem] font-medium tracking-[-1px]"
         >
           Home
         </Link>
         <MdArrowForwardIos className="text-gray-400" />
-        <span className="font-semibold tracking-[-1px] text-[1.2rem]">
+        <span className="font-semibold tracking-[-1px] text-[1.2rem] sm:text-[1rem]">
           Browse Categories
         </span>
         <MdArrowForwardIos />
         <Link
           href={"/checkout"}
-          className="text-gray-400 text-[1.2rem] font-medium tracking-[-1px]"
+          className="text-gray-400 text-[1.2rem] sm:text-[1rem] font-medium tracking-[-1px]"
         >
           Cart
         </Link>
@@ -53,7 +57,7 @@ function Categories({ products }) {
       <div
         data-aos="fade-up"
         data-aos-once="true"
-        className="flex items-center justify-center gap-10 my-10"
+        className="flex flex-wrap items-center justify-center gap-10 my-10"
       >
         <div
           className="flex items-center cursor-pointer gap-2  px-4 py-2 rounded-lg"
@@ -91,7 +95,11 @@ function Categories({ products }) {
           <IoIosArrowDown />
         </div>
       </div>
-      <div data-aos="fade-up" data-aos-once="true" className="flex flex-wrap justify-center gap-10 mb-5 screen2:grid grid-cols-grid1 p-2 screen2:gap-5">
+      <div
+        data-aos="fade-up"
+        data-aos-once="true"
+        className="flex flex-wrap justify-center gap-10 mb-5 screen2:grid grid-cols-grid1 p-2 screen2:gap-5"
+      >
         {data.map((item) => (
           <div key={item._id} className="w-64 screen2:w-full">
             <Product {...item} />
