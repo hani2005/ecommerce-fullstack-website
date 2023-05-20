@@ -62,7 +62,7 @@ function Footer() {
         </div>
       </div>
       <div className="mt-[3rem] text-[0.9rem] text-gray-500 flex justify-center mb-[-1rem]">
-        Copyright &#169; Built & Designed by Hani Mohammed
+        Copyright &#169; Built & Designed by Hani Abdelkareem
       </div>
     </footer>
   )
