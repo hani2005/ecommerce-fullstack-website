@@ -16,7 +16,7 @@ const ProductDetails = ({ product }) => {
 
   function moreOfThisProduct(id) {
     setSelectedProducts((prev) => [...prev, id])
-    toast.success("item add to the cart")
+    toast.success("item added to the cart")
   }
 
   function lessOfThisProduct(id) {
